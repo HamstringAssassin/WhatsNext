@@ -1,2 +1,3 @@
 # WhatsNext
-WebApp todo list written with Perfect server side swift
+
+A description of this package.
