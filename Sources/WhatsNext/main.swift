@@ -1,14 +1,38 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
-
 import Foundation
+import PerfectMustache
 
 let server = HTTPServer()
 server.serverPort = 8080
 server.documentRoot = "webroot"
 
 var routes = Routes()
+
+struct MustacheHelper: MustachePageHandler {
+    var values: MustacheEvaluationContext.MapType
+    
+    func extendValuesForResponse(context contxt: MustacheWebEvaluationContext, collector: MustacheEvaluationOutputCollector) {
+        contxt.extendValues(with: values)
+        
+        do {
+            try contxt.requestCompleted(withCollector: collector)
+        } catch {
+            let response = contxt.webResponse
+            response.appendBody(string: "\(error)")
+            .completed(status: .internalServerError)
+        }
+    }
+}
+
+func helloMustache(request: HTTPRequest, response: HTTPResponse) {
+    var values = MustacheEvaluationContext.MapType()
+    values["name"] = "HammyAssassin"
+    mustacheRequest(request: request, response: response, handler:  MustacheHelper(values: values), templatePath: request.documentRoot + "/" + "hello.html")
+}
+
+routes.add(method: .get, uri: "/helloMustache", handler: helloMustache)
 
 func readTXTFile() -> String {
     var readText = ""
