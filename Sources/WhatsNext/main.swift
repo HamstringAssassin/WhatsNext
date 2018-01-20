@@ -3,6 +3,7 @@ import PerfectHTTP
 import PerfectHTTPServer
 import Foundation
 import PerfectMustache
+import PostgresStORM
 
 let server = HTTPServer()
 server.serverPort = 8080
