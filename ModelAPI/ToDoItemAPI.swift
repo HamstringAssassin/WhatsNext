@@ -10,14 +10,14 @@ import PerfectHTTP
 
 class ToDoItemAPI {
     
-    static func itemsToJSONArray(items: [ToDoItem]) -> JSONArray {
+    static func itemsToJSONArray(items: [ListItem]) -> JSONArray {
         return items.map{ (item) in
             item.asJSONDictionary()
         }
     }
     
     static func allAsJSONArray() throws -> JSONArray {
-        let toDoItems = try ToDoItem.all()
+        let toDoItems = try ListItem.all()
         return itemsToJSONArray(items: toDoItems)
     }
     
@@ -29,15 +29,15 @@ class ToDoItemAPI {
         guard let description = request.param(name: "description"), let priority = request.param(name: "priority") else {
             return "missing parameters"
         }
-        return try ToDoItem.newItem(description: description, priority: priority).asJSONDictionary().jsonEncodedString()
+        return try ListItem.newItem(description: description, priority: priority).asJSONDictionary().jsonEncodedString()
     }
     
     static func first() throws -> String? {
-        return try ToDoItem.firstItem()?.asJSONDictionary().jsonEncodedString()
+        return try ListItem.firstItem()?.asJSONDictionary().jsonEncodedString()
     }
     
     static func itemsByPriority(priority: String) throws -> JSONArray {
-        let priorityItems = try ToDoItem.itemsByPriority(priority: priority)
+        let priorityItems = try ListItem.itemsByPriority(priority: priority)
         
         return priorityItems.map{ (item) in
             item.asJSONDictionary()
@@ -45,7 +45,7 @@ class ToDoItemAPI {
     }
     
     static func allItemsExceptHigh() throws -> JSONArray {
-        return try ToDoItem.selectAllItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
+        return try ListItem.selectAllItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
             item.asJSONDictionary()
         })
     }
@@ -57,7 +57,7 @@ class ToDoItemAPI {
             return "missing ID - nothing to update"
         }
         
-        guard let toDoItem = try ToDoItem.updateItem(byId: id, withDescription: description, andPriority: priority) else {
+        guard let toDoItem = try ListItem.updateItem(byId: id, withDescription: description, andPriority: priority) else {
             return "unable to update item"
         }
         
@@ -68,7 +68,7 @@ class ToDoItemAPI {
         guard let id = request.param(name: "id") else {
             return "missing ID - nothing to delete"
         }
-        let allItems = try ToDoItem.deleteItem(byId: id)
+        let allItems = try ListItem.deleteItem(byId: id)
         return try allItems.map{ (item) in
             item.asJSONDictionary()
         }.jsonEncodedString()

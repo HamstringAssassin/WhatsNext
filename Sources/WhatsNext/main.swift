@@ -19,7 +19,7 @@ PostgresConnector.password = "perfect"
 PostgresConnector.database = "perfect_testing"
 PostgresConnector.port = 5432
 
-    let setupObject = ToDoItem()
+    let setupObject = ListItem()
     try? setupObject.setup()
 
 let toDoController = ToDoController()

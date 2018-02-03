@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Model {
-    static func all() throws -> [ToDoItem]
+    static func all() throws -> [ListItem]
     
     func asJSONDictionary() -> JSONDictionary
     
