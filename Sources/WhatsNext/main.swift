@@ -22,31 +22,8 @@ PostgresConnector.port = 5432
     let setupObject = ToDoItem()
     try? setupObject.setup()
 
-func test(request: HTTPRequest, response: HTTPResponse) {
-    do {
-        let toDoItem = ToDoItem()
-        toDoItem.description = "Finish the DB part of this tutorial"
-        try toDoItem.save() { id in
-            toDoItem.id = id as! Int
-        }
-        
-        //Get all toDoItems as a Dictionary
-        let getObject = ToDoItem()
-        try getObject.findAll()
-        var toDoItems: [[String: Any]] = []
-        for row in getObject.rows() {
-            toDoItems.append(row.asDisctionary())
-        }
-        
-        try response.setBody(json: toDoItems).setHeader(.contentType, value: "application/json").completed()
-        
-    } catch  {
-        response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
-    }
-}
-
-routes.add(method: .get, uri: "/test", handler: test)
-
+let toDoController = ToDoController()
+routes.add(toDoController.routes)
 
 struct MustacheHelper: MustachePageHandler {
     var values: MustacheEvaluationContext.MapType
@@ -96,3 +73,4 @@ do {
 } catch PerfectError.networkError(let err, let msg) {
     print("Network error thrown: \(err) \(msg)")
 }
+

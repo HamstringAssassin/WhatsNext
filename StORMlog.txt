@@ -1,1 +1,72 @@
 [INFO] [12a279b9-8a16-4a31-800f-613c6b0db84f] [2018-01-20 11:11:24 GMT] Running setup: toDoList
+[INFO] [230c9224-c084-4c3d-8620-d7496bcac2de] [2018-01-21 18:02:09 GMT] Running setup: toDoList
+[INFO] [518c2f21-e54c-4d6c-b660-93f4cc8b8991] [2018-01-21 18:06:48 GMT] Running setup: toDoList
+[INFO] [a1a9723c-aeb5-45bc-9121-322a8aca982d] [2018-01-21 18:06:58 GMT] Running setup: toDoList
+[INFO] [125a2ae8-34a4-43e6-8e7e-8abc4c9067cb] [2018-01-27 11:10:53 GMT] Running setup: toDoList
+[INFO] [67b62121-982f-482f-a8a0-396d8ec052d8] [2018-01-27 11:12:43 GMT] Running setup: toDoList
+[INFO] [06055d67-3111-433c-a126-c76e1b47e30f] [2018-01-27 11:43:40 GMT] Running setup: toDoList
+[INFO] [efb73696-5c2f-4d02-8bc2-a3769b5409fe] [2018-01-27 11:46:57 GMT] Running setup: toDoList
+[INFO] [539f6401-5e44-4823-8ce8-ea9a1f2715b8] [2018-01-27 11:52:30 GMT] Running setup: toDoList
+[INFO] [a5be2c19-a233-46cd-9b7a-269f910a27dd] [2018-01-27 15:56:16 GMT] Running setup: toDoList
+[INFO] [74d8e395-61ee-4af7-877a-945edfd5246b] [2018-01-27 16:37:00 GMT] Running setup: toDoList
+[INFO] [201f49ed-7106-4d26-9c8f-dc7e31d236c4] [2018-01-27 16:38:31 GMT] Running setup: toDoList
+[INFO] [421fdaca-6ad9-442f-b9e3-0ff9b1cf28fd] [2018-01-27 16:40:11 GMT] Running setup: toDoList
+[INFO] [293eb344-31e8-4f7e-a6b1-a0c46261542c] [2018-01-27 16:41:31 GMT] Running setup: toDoList
+[INFO] [61c5dc3d-98c3-49e3-9771-2a63ed14b64f] [2018-01-27 17:02:48 GMT] Running setup: toDoList
+[INFO] [f3145d64-5d3f-4a5a-80fa-9fccd7f2d229] [2018-01-27 17:03:25 GMT] Running setup: toDoList
+[INFO] [8cd7eda1-282f-4a34-a1c5-5e2b27a14384] [2018-01-27 17:07:24 GMT] Running setup: toDoList
+[INFO] [0efb450a-c017-4590-96eb-6695918b9c55] [2018-01-27 17:14:07 GMT] Running setup: toDoList
+[INFO] [d290de7d-c6df-438b-8084-dc8484345595] [2018-01-27 17:40:04 GMT] Running setup: toDoList
+[INFO] [3ec77543-dbb2-4719-a692-c54783696334] [2018-01-27 18:13:54 GMT] Running setup: toDoList
+[ERROR] [bac3f066-9d97-44ad-b682-824fbaa29561] [2018-01-27 18:14:03 GMT] Error msg: error("ERROR:  column \"priority\" does not exist\nLINE 1: SELECT \"id\",\"description\",\"priority\" FROM toDoList  WHERE tr...\n                                  ^")
+[ERROR] [4f36e905-0fd1-46c9-8a94-14905be57b72] [2018-01-27 18:14:13 GMT] Error msg: error("ERROR:  column \"priority\" does not exist\nLINE 1: SELECT \"id\",\"description\",\"priority\" FROM toDoList  WHERE tr...\n                                  ^")
+[INFO] [5c33c470-3fc2-471e-88cb-216b011a2d82] [2018-01-27 18:14:34 GMT] Running setup: toDoList
+[INFO] [84a940da-dea5-46c9-982a-84a59f93bbbf] [2018-01-27 18:21:46 GMT] Running setup: toDoList
+[ERROR] [3738dcc4-bd77-4db5-bbf5-9e842e633f9b] [2018-01-27 18:21:57 GMT] Error msg: error("ERROR:  column \"priority\" does not exist\nLINE 1: SELECT \"id\",\"description\",\"priority\" FROM toDoList  WHERE tr...\n                                  ^")
+[INFO] [e5bdb716-d42d-4522-b5de-e3c18b2c549b] [2018-01-27 18:31:11 GMT] Running setup: toDoList
+[INFO] [25a3b6fd-7b97-43ff-9889-a93640941d53] [2018-01-27 18:31:56 GMT] Running setup: toDoList
+[INFO] [e42efb71-221e-4aa1-9dc2-563d64b0f95a] [2018-01-27 18:32:13 GMT] Running setup: toDoList
+[INFO] [dad63258-7690-4bfa-9353-7564f0d2286e] [2018-01-27 18:33:42 GMT] Running setup: toDoList
+[INFO] [9f1631d2-0efb-4f87-8132-0d293420133b] [2018-01-27 18:38:13 GMT] Running setup: toDoList
+[INFO] [85064788-6d3a-455b-9565-d79b1e22627a] [2018-01-27 18:40:17 GMT] Running setup: toDoList
+[INFO] [22504ca8-667b-44aa-a519-18e3bcf1de79] [2018-01-27 18:41:43 GMT] Running setup: toDoList
+[INFO] [808216fd-a170-42e4-a32b-2e01e07fd1de] [2018-01-27 18:45:00 GMT] Running setup: toDoList
+[INFO] [c48d799a-8766-4f62-8930-8df8b3d31dbf] [2018-01-27 19:04:38 GMT] Running setup: toDoList
+[INFO] [b15f5fb7-3cde-45d7-99bf-740e5530ae4d] [2018-01-28 01:05:16 GMT] Running setup: toDoList
+[INFO] [fc4e45b3-02ad-4317-9537-01a8d968cfb7] [2018-01-28 01:06:00 GMT] Running setup: toDoList
+[INFO] [758c9057-5fad-4bb4-a30c-0b992ba126d5] [2018-01-28 01:06:50 GMT] Running setup: toDoList
+[INFO] [eb21f5e9-2aa2-4750-a152-ede79183789e] [2018-01-28 10:41:43 GMT] Running setup: toDoList
+[INFO] [4ab04cac-821e-4582-8191-12518a3958e3] [2018-01-28 11:08:02 GMT] Running setup: toDoList
+[INFO] [7d973507-8558-487c-9e51-f2c12094f82d] [2018-01-28 11:08:44 GMT] Running setup: toDoList
+[INFO] [b4adbf0b-2af0-4d4a-8ea4-03516539060d] [2018-01-28 11:44:09 GMT] Running setup: toDoList
+[INFO] [01cd8e8a-958d-425e-b5ea-40ecb41a872f] [2018-01-28 11:46:44 GMT] Running setup: toDoList
+[INFO] [4c2bbb64-f88b-4579-8952-3a003a2abd17] [2018-01-28 11:48:30 GMT] Running setup: toDoList
+[INFO] [83f56ee0-0356-42cc-b3ad-7d57c4cfae82] [2018-01-28 11:56:39 GMT] Running setup: toDoList
+[INFO] [0360dc82-baf3-41e2-97b5-f14d37d1ce86] [2018-01-30 21:45:27 GMT] Running setup: toDoList
+[INFO] [5c9d3b6e-f10f-4e6f-8bf7-f8b70872b2c4] [2018-01-30 21:45:57 GMT] Running setup: toDoList
+[INFO] [849d0700-8aee-48da-aa01-67d9aa961a4d] [2018-02-02 23:23:45 GMT] Running setup: toDoList
+[INFO] [cd09b244-4a43-4ae6-90be-5e1b218fe1d4] [2018-02-02 23:52:55 GMT] Running setup: toDoList
+[INFO] [45ea0190-9a6f-4229-bf2a-de7f58c5f6a2] [2018-02-02 23:57:28 GMT] Running setup: toDoList
+[INFO] [effae122-86ce-47fe-aa79-b743fc7e538d] [2018-02-03 00:01:32 GMT] Running setup: toDoList
+[INFO] [e3c6a7b9-0b6a-420f-9665-355ca26c4580] [2018-02-03 00:21:05 GMT] Running setup: toDoList
+[INFO] [94deef26-3722-42af-9c0f-632dddbdbb7b] [2018-02-03 00:22:59 GMT] Running setup: toDoList
+[INFO] [68acf690-755b-4b5a-a9c1-c5353a6b654a] [2018-02-03 09:33:08 GMT] Running setup: toDoList
+[INFO] [380a1589-3aa3-4919-bff5-5b763c7c5607] [2018-02-03 09:47:05 GMT] Running setup: toDoList
+[INFO] [4bb0cdc1-8686-4000-8161-9eb22b82538c] [2018-02-03 09:59:42 GMT] Running setup: toDoList
+[ERROR] [fe47b190-32ff-461f-9269-f892f825c875] [2018-02-03 10:00:51 GMT] Error msg: error("ERROR:  column \"high\" does not exist\nLINE 1: SELECT COUNT(*) AS counter FROM toDoList  WHERE high = $1\n                                                        ^")
+[ERROR] [fff0ee2f-9380-44b4-9018-4df0c1bcb1e2] [2018-02-03 10:00:51 GMT] Error: error("error(\"ERROR:  column \\\"high\\\" does not exist\\nLINE 1: SELECT COUNT(*) AS counter FROM toDoList  WHERE high = $1\\n                                                        ^\")")
+[INFO] [15ee3afd-643f-44af-ba6d-0ebeb55ed253] [2018-02-03 10:01:24 GMT] Running setup: toDoList
+[ERROR] [8adfa8c9-1831-49f1-80b0-62f29a6e1c5a] [2018-02-03 10:01:44 GMT] Error msg: error("ERROR:  column \"medium\" does not exist\nLINE 1: SELECT COUNT(*) AS counter FROM toDoList  WHERE medium = $1\n                                                        ^")
+[ERROR] [f3b0ea7e-7406-4158-9b8a-1208e2fe47c8] [2018-02-03 10:01:44 GMT] Error: error("error(\"ERROR:  column \\\"medium\\\" does not exist\\nLINE 1: SELECT COUNT(*) AS counter FROM toDoList  WHERE medium = $1\\n                                                        ^\")")
+[INFO] [8df2e839-2f80-4b37-9aee-79de59c11852] [2018-02-03 10:02:18 GMT] Running setup: toDoList
+[INFO] [6ca48ccc-10d2-4574-81e2-88d24e586a6d] [2018-02-03 10:56:32 GMT] Running setup: toDoList
+[INFO] [acfb7e17-fc5a-47a4-953f-554cba51b067] [2018-02-03 12:26:24 GMT] Running setup: toDoList
+[INFO] [e3cb6d57-fc51-45b0-850a-e16b0348ddc5] [2018-02-03 12:45:17 GMT] Running setup: toDoList
+[INFO] [9ab943c3-2c25-4aba-93bd-43b79694a976] [2018-02-03 12:49:31 GMT] Running setup: toDoList
+[INFO] [6c88c961-6a91-4ae1-9c1b-e6154f706169] [2018-02-03 12:50:34 GMT] Running setup: toDoList
+[INFO] [3b6fcb59-109f-4940-9746-064121651b3f] [2018-02-03 13:39:36 GMT] Running setup: toDoList
+[INFO] [f91dcec4-e85d-4674-8ae0-b3ddad97f8cf] [2018-02-03 13:45:41 GMT] Running setup: toDoList
+[INFO] [11d3404e-5ec0-4873-93dd-91b64a40c8a1] [2018-02-03 13:47:31 GMT] Running setup: toDoList
+[INFO] [f515b02f-a511-4d87-aead-d31e8029448a] [2018-02-03 13:48:26 GMT] Running setup: toDoList
+[INFO] [fd6af7c1-890c-4206-9ec4-de5488d6dab2] [2018-02-03 14:12:08 GMT] Running setup: toDoList
+[INFO] [0e1c035d-52da-4720-9279-06c09c98b01a] [2018-02-03 14:12:19 GMT] Running setup: toDoList

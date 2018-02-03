@@ -12,27 +12,27 @@
 		<key>PerfectCURLPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>PerfectCZlibPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>13</integer>
 		</dict>
 		<key>PerfectCryptoPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>12</integer>
 		</dict>
 		<key>PerfectHTTPPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>14</integer>
 		</dict>
 		<key>PerfectHTTPServerPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>10</integer>
 		</dict>
 		<key>PerfectLibPackageDescription.xcscheme</key>
 		<dict>
@@ -42,22 +42,22 @@
 		<key>PerfectLoggerPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>PerfectMustachePackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
 		</dict>
 		<key>PerfectNetPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>15</integer>
 		</dict>
 		<key>PerfectPostgreSQLPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>8</integer>
 		</dict>
 		<key>PerfectThreadPackageDescription.xcscheme</key>
 		<dict>
@@ -67,22 +67,22 @@
 		<key>PerfectXMLPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
 		<key>PostgresStORMPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>StORMPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>SwiftMomentPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>7</integer>
 		</dict>
 		<key>WhatsNext-Package.xcscheme_^#shared#^_</key>
 		<dict>
@@ -97,11 +97,181 @@
 		<key>WhatsNextPackageDescription.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>COpenSSL::COpenSSL</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>COpenSSL::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectCURL::PerfectCURL</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectCURL::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectCZlib::PerfectCZlib</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectCZlib::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectCrypto::PerfectCrypto</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectCrypto::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectHTTP::PerfectHTTP</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectHTTP::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectHTTPServer::PerfectCHTTPParser</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectHTTPServer::PerfectHTTPServer</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectHTTPServer::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectLib::PerfectLib</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectLib::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectLogger::PerfectLogger</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectLogger::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectMustache::PerfectMustache</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectMustache::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectNet::PerfectNet</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectNet::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectPostgreSQL::PerfectPostgreSQL</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectPostgreSQL::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectThread::PerfectThread</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectThread::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectXML::PerfectXML</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PerfectXML::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PostgresStORM::PostgresStORM</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>PostgresStORM::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>StORM::StORM</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>StORM::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>SwiftMoment::SwiftMoment</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>SwiftMoment::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>WhatsNext::SwiftPMPackageDescription</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>WhatsNext::WhatsNext</key>
 		<dict>
 			<key>primary</key>
