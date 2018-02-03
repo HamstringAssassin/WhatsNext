@@ -15,11 +15,9 @@ import PostgresStORM
 class ToDoController {
     var routes: [Route] {
         return [
-            Route(method: .get, uri: "/test", handler: test),
             Route(method: .post, uri: "/new", handler: new),
             Route(method: .get, uri: "/all", handler: all),
             Route(method: .get, uri: "/first", handler: first),
-            Route(method: .get, uri: "/top", handler: highestPriority),
             Route(method: .get, uri: "/priority", handler: byPriority),
             Route(method: .get, uri: "/everythingButTop", handler: everythingButTop),
             Route(method: .post, uri: "/update", handler: update),
@@ -27,51 +25,33 @@ class ToDoController {
         ]
     }
     
-    func test(request: HTTPRequest, response: HTTPResponse) {
-        do {
-            let json = try ToDoItemAPI.test()
-            try response.setBody(string: json).JSONCompletedHeader()
-        } catch  {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
-        }
-    }
-    
     func new(request: HTTPRequest, response: HTTPResponse) {
         do {
             let json = try ToDoItemAPI.new(withRequest: request)
-            response.setBody(string: json).setHeader(.contentType, value: "application/json").completed()
+            response.setBody(string: json).JSONCompletedHeader()
         } catch  {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
     
     func all(request: HTTPRequest, response: HTTPResponse) {
         do {
             let json = try ToDoItemAPI.all()
-            response.setBody(string: json).setHeader(.contentType, value: "application/json").completed()
+            response.setBody(string: json).JSONCompletedHeader()
         } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
 
     func first(request: HTTPRequest, response: HTTPResponse) {
         do {
             if let json = try ToDoItemAPI.first() {
-                response.setBody(string: json).setHeader(.contentType, value: "application/json").completed()
+                response.setBody(string: json).JSONCompletedHeader()
             } else {
-                response.setBody(string: "").setHeader(.contentType, value: "application/json").completed()
+                response.setBody(string: "").JSONCompletedHeader()
             }
         } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
-        }
-    }
-
-    func highestPriority(request:HTTPRequest, response:HTTPResponse) {
-        do {
-            let itemsAsDictionaries = try ToDoItemAPI.itemsByPriority(priority: "high")
-            try response.setBody(json: itemsAsDictionaries).setHeader(.contentType, value: "application/json").completed()
-        } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
     
@@ -82,36 +62,36 @@ class ToDoController {
                 return
             }
             let itemsAsDictionaries = try ToDoItemAPI.itemsByPriority(priority: priority)
-            try response.setBody(json: itemsAsDictionaries).setHeader(.contentType, value: "application/json").completed()
+            try response.setBody(json: itemsAsDictionaries).JSONCompletedHeader()
         } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
     
     func everythingButTop(request:HTTPRequest, response:HTTPResponse) {
         do {
             let toDoItems = try ToDoItemAPI.allItemsExceptHigh()
-            try response.setBody(json: toDoItems).setHeader(.contentType, value: "application/json").completed()
+            try response.setBody(json: toDoItems).JSONCompletedHeader()
         } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
     
     func update(request:HTTPRequest, response:HTTPResponse) {
         do {
             let item = try ToDoItemAPI.updateItem(withRequest: request)
-            response.setBody(string: item).setHeader(.contentType, value: "application/json").completed()
+            response.setBody(string: item).JSONCompletedHeader()
         } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
     
     func delete(request: HTTPRequest, response: HTTPResponse) {
         do {
             let allItems = try ToDoItemAPI.deleteItem(withRequest: request)
-            response.setBody(string: allItems).setHeader(.contentType, value: "application/json").completed()
+            response.setBody(string: allItems).JSONCompletedHeader()
         } catch {
-            response.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
+            response.completedInternalServerError(error: error)
         }
     }
 }

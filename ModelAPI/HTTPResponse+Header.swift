@@ -10,11 +10,11 @@ import PerfectHTTP
 
 
 extension HTTPResponse {
-    func JSONCompletedHeader() throws {
+    func JSONCompletedHeader() {
         return self.setHeader(.contentType, value: "application/json").completed()
     }
     
-    func completedInternalServerError(error: Error) throws {
+    func completedInternalServerError(error: Error) {
         return self.setBody(string: "Error handling request \(error)").completed(status: .internalServerError)
     }
 }

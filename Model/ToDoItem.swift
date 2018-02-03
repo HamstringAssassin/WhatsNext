@@ -35,7 +35,7 @@ class ToDoItem: PostgresStORM {
         return rows
     }
     
-    func asDisctionary() -> [String: Any] {
+    func asJSONDictionary() -> JSONDictionary {
         return ["id":self.id, "description":self.description, "priority": self.priority]
     }
     
@@ -45,23 +45,23 @@ class ToDoItem: PostgresStORM {
         return getObject.rows()
     }
     
-    static func newItem(description: String, priority: String) throws -> [String:Any] {
+    static func newItem(description: String, priority: String) throws -> ToDoItem {
         let todoItem = ToDoItem()
         todoItem.description = description
         todoItem.priority = priority
         try todoItem.save() { id in
             todoItem.id = id as! Int
         }
-        return todoItem.asDisctionary()
+        return todoItem
     }
     
     static func item(byId id: String) throws -> ToDoItem? {
-        let getObj = ToDoItem()
-        var findObj = [String: Any]()
-        findObj["id"] = id
+        let getObject = ToDoItem()
+        var searchData = JSONDictionary()
+        searchData["id"] = id
         
-        try getObj.find(findObj)
-        return getObj.rows().first
+        try getObject.find(searchData)
+        return getObject.rows().first
     }
     
     static func firstItem() throws -> ToDoItem? {
@@ -73,10 +73,21 @@ class ToDoItem: PostgresStORM {
     
     static func itemsByPriority(priority: String) throws -> [ToDoItem] {
         let getObj = ToDoItem()
-        var findObj = [String: Any]()
-        findObj["priority"] = priority
+        var searchData = JSONDictionary()
+        searchData["priority"] = priority
         
-        try getObj.find(findObj)
+        try getObj.find(searchData)
+        var toDoItems: [ToDoItem] = []
+        for row in getObj.rows() {
+            toDoItems.append(row)
+        }
+        return toDoItems
+    }
+    
+    static func selectAllItems(whereClause: String, params: [String], orderBy: [String]) throws -> [ToDoItem] {
+        let getObj = ToDoItem()
+        try getObj.select(whereclause: whereClause, params: params, orderby: orderBy)
+        
         var toDoItems: [ToDoItem] = []
         for row in getObj.rows() {
             toDoItems.append(row)
@@ -85,16 +96,11 @@ class ToDoItem: PostgresStORM {
     }
     
     static func updateItem(byId id: String, withDescription description: String?, andPriority priority: String?) throws -> ToDoItem? {
-        let getObj = ToDoItem()
-        var findObj = [String: Any]()
-        findObj["id"] = id
-        
-        try getObj.find(findObj)
-        guard let toDoItem = getObj.rows().first else { return nil }
-        toDoItem.description = description ?? toDoItem.description
-        toDoItem.priority = priority ?? toDoItem.priority
-        try toDoItem.save()
-        return toDoItem
+        guard let item = try ToDoItem.item(byId: id) else { return nil }
+        item.description = description ?? item.description
+        item.priority = priority ?? item.priority
+        try item.save()
+        return item
     }
     
     static func deleteItem(byId id: String) throws -> [ToDoItem] {

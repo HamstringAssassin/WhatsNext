@@ -10,66 +10,43 @@ import PerfectHTTP
 
 class ToDoItemAPI {
     
-    static func toDoItemToDictionary(toDoItems: [ToDoItem]) -> [[String: Any]] {
-        var toDoItemJson: [[String:Any]] = []
-        for row in toDoItems {
-            toDoItemJson.append(row.asDisctionary())
+    static func itemsToJSONArray(items: [ToDoItem]) -> JSONArray {
+        return items.map{ (item) in
+            item.asJSONDictionary()
         }
-        return toDoItemJson
     }
     
-    static func allAsDictionary() throws -> [[String: Any]] {
+    static func allAsJSONArray() throws -> JSONArray {
         let toDoItems = try ToDoItem.all()
-        return toDoItemToDictionary(toDoItems: toDoItems)
+        return itemsToJSONArray(items: toDoItems)
     }
     
     static func all() throws -> String {
-        return try allAsDictionary().jsonEncodedString()
+        return try allAsJSONArray().jsonEncodedString()
     }
     
     static func new(withRequest request: HTTPRequest) throws -> String {
         guard let description = request.param(name: "description"), let priority = request.param(name: "priority") else {
             return "missing parameters"
         }
-        return try ToDoItem.newItem(description: description, priority: priority).jsonEncodedString()
+        return try ToDoItem.newItem(description: description, priority: priority).asJSONDictionary().jsonEncodedString()
     }
     
     static func first() throws -> String? {
-        return try ToDoItem.firstItem()?.asDisctionary().jsonEncodedString()
+        return try ToDoItem.firstItem()?.asJSONDictionary().jsonEncodedString()
     }
     
-    static func itemsByPriority(priority: String) throws -> [[String : Any]] {
+    static func itemsByPriority(priority: String) throws -> JSONArray {
         let priorityItems = try ToDoItem.itemsByPriority(priority: priority)
         
-        let itemsAsDictionaries = priorityItems.map{ (item) in
-            item.asDisctionary()
+        return priorityItems.map{ (item) in
+            item.asJSONDictionary()
         }
-        return itemsAsDictionaries
     }
     
-    static func test() throws -> String {
-        let toDoItem = ToDoItem()
-        toDoItem.description = "Finish the DB part of this tutorial"
-        try toDoItem.save() { id in
-            toDoItem.id = id as! Int
-        }
-        return try all()
-    }
-    
-    static func allItems(whereClause: String, params: [String], orderBy: [String]) throws -> [ToDoItem] {
-        let getObj = ToDoItem()
-        try getObj.select(whereclause: whereClause, params: params, orderby: orderBy)
-        
-        var toDoItems: [ToDoItem] = []
-        for row in getObj.rows() {
-            toDoItems.append(row)
-        }
-        return toDoItems
-    }
-    
-    static func allItemsExceptHigh() throws -> [[String : Any]] {
-        return try ToDoItemAPI.allItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
-            item.asDisctionary()
+    static func allItemsExceptHigh() throws -> JSONArray {
+        return try ToDoItem.selectAllItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
+            item.asJSONDictionary()
         })
     }
     
@@ -84,7 +61,7 @@ class ToDoItemAPI {
             return "unable to update item"
         }
         
-        return try toDoItem.asDisctionary().jsonEncodedString()
+        return try toDoItem.asJSONDictionary().jsonEncodedString()
     }
     
     static func deleteItem(withRequest request: HTTPRequest) throws -> String {
@@ -93,7 +70,7 @@ class ToDoItemAPI {
         }
         let allItems = try ToDoItem.deleteItem(byId: id)
         return try allItems.map{ (item) in
-            item.asDisctionary()
+            item.asJSONDictionary()
         }.jsonEncodedString()
     }
 }
