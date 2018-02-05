@@ -1,5 +1,5 @@
 //
-//  ToDoItemAPI.swift
+//  ListItemAPI.swift
 //  WhatsNext
 //
 //  Created by Alan O'Connor on 30/01/2018.
@@ -8,22 +8,7 @@
 import Foundation
 import PerfectHTTP
 
-class ToDoItemAPI {
-    
-    static func itemsToJSONArray(items: [ListItem]) -> JSONArray {
-        return items.map{ (item) in
-            item.asJSONDictionary()
-        }
-    }
-    
-    static func allAsJSONArray() throws -> JSONArray {
-        let toDoItems = try ListItem.all()
-        return itemsToJSONArray(items: toDoItems)
-    }
-    
-    static func all() throws -> String {
-        return try allAsJSONArray().jsonEncodedString()
-    }
+class ListItemAPI {
     
     static func new(withRequest request: HTTPRequest) throws -> String {
         guard let description = request.param(name: "description"), let priority = request.param(name: "priority") else {
@@ -50,14 +35,21 @@ class ToDoItemAPI {
         })
     }
     
+    static func itemsByVisiblity(visibility: String) throws -> JSONArray {
+        return try ListItem.selectAllItems(whereClause: "visible = $1", params: [visibility]).map({ (item) in
+            item.asJSONDictionary()
+        })
+    }
+    
     static func updateItem(withRequest request: HTTPRequest) throws -> String {
         let description = request.param(name: "description")
         let priority = request.param(name: "priority")
+        let visible = request.param(name: "visible")
         guard let id = request.param(name: "id") else {
             return "missing ID - nothing to update"
         }
         
-        guard let toDoItem = try ListItem.updateItem(byId: id, withDescription: description, andPriority: priority) else {
+        guard let toDoItem = try ListItem.updateItem(byId: id, withDescription: description, andPriority: priority, andVisibility: visible) else {
             return "unable to update item"
         }
         

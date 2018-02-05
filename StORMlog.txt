@@ -73,3 +73,17 @@
 [INFO] [0d2ccb30-fe7d-4973-923a-944fd3d0efff] [2018-02-03 22:53:13 GMT] Running setup: toDoList
 [INFO] [5684ec07-ae20-4b36-9a09-a48905d636c0] [2018-02-03 23:23:20 GMT] Running setup: toDoList
 [INFO] [80db997c-f9b1-4d47-8b0d-2dd656679355] [2018-02-03 23:29:11 GMT] Running setup: toDoList
+[INFO] [187c7317-41ed-41be-a6a8-da6be285af16] [2018-02-04 14:48:33 GMT] Running setup: toDoList
+[INFO] [52f8bc30-a379-4ec9-b544-3d4954b997ea] [2018-02-04 14:49:54 GMT] Running setup: toDoList
+[INFO] [bed280f7-7cf8-4350-93f1-c214449ec104] [2018-02-04 15:31:41 GMT] Running setup: toDoList
+[INFO] [969b2ac3-d6cb-4780-826c-1812c9a1c12b] [2018-02-04 15:37:55 GMT] Running setup: toDoList
+[ERROR] [8a68577e-2978-4e42-bbc7-f80947c8a3b4] [2018-02-04 15:38:04 GMT] Error msg: error("ERROR:  column \"visible\" does not exist\nLINE 1: SELECT \"id\",\"description\",\"priority\",\"visible\" FROM toDoList...\n                                             ^")
+[INFO] [5b7a4c65-67e1-482e-b0ed-4587b5a9b654] [2018-02-04 15:39:16 GMT] Running setup: toDoList
+[INFO] [2c5c8daa-6283-443e-9a3d-46f92aea9118] [2018-02-04 19:20:28 GMT] Running setup: toDoList
+[INFO] [dec9b87e-9d87-4bc9-901e-07e89d3423de] [2018-02-04 19:21:37 GMT] Running setup: toDoList
+[INFO] [ba214c95-242d-46ff-8cbb-6a38017491ea] [2018-02-04 19:23:08 GMT] Running setup: toDoList
+[ERROR] [37eff092-7004-46ef-9578-34a1d3a08d2d] [2018-02-04 19:23:13 GMT] Error msg: error("ERROR:  operator does not exist: boolean == unknown\nLINE 1: ...ELECT COUNT(*) AS counter FROM toDoList  WHERE visible == $1\n                                                                  ^\nHINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.")
+[ERROR] [3f586b99-65c8-4a78-976a-7def928dce91] [2018-02-04 19:23:16 GMT] Error msg: error("ERROR:  operator does not exist: boolean == unknown\nLINE 1: ...ELECT COUNT(*) AS counter FROM toDoList  WHERE visible == $1\n                                                                  ^\nHINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.")
+[ERROR] [dcb45bfb-7451-4631-9d58-ba965d17a0ed] [2018-02-04 19:23:33 GMT] Error msg: error("ERROR:  operator does not exist: boolean == unknown\nLINE 1: ...ELECT COUNT(*) AS counter FROM toDoList  WHERE visible == $1\n                                                                  ^\nHINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.")
+[INFO] [3e26bd3a-048f-4aa2-ad1a-79aafee50f4e] [2018-02-04 19:24:40 GMT] Running setup: toDoList
+[INFO] [dea77ab2-3c50-478a-a6f1-b578884c0987] [2018-02-05 19:20:34 GMT] Running setup: toDoList

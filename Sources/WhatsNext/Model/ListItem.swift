@@ -14,6 +14,7 @@ class ListItem: PostgresStORM {
     var id: Int = 0
     var description: String = ""
     var priority: String = "medium"
+    var visible: Bool = true
     
     override func table() -> String {
         return "toDoList"
@@ -23,6 +24,7 @@ class ListItem: PostgresStORM {
         id = this.data["id"] as? Int ?? 0
         description = this.data["description"] as? String ?? ""
         priority = this.data["priority"] as? String ?? ""
+        visible = this.data["visible"] as? Bool ??  true
     }
     
     func rows() -> [ListItem] {
@@ -36,10 +38,25 @@ class ListItem: PostgresStORM {
     }
     
     func asJSONDictionary() -> JSONDictionary {
-        return ["id":self.id, "description":self.description, "priority": self.priority]
+        return ["id":self.id, "description":self.description, "priority": self.priority, "visible": self.visible]
     }
     
-    static func all() throws -> [ListItem] {
+    static func itemsToJSONArray(items: [ListItem]) -> JSONArray {
+        return items.map{ (item) in
+            item.asJSONDictionary()
+        }
+    }
+    
+    static func allAsJSONArray() throws -> JSONArray {
+        let listItems = try ListItem.allItems()
+        return itemsToJSONArray(items: listItems)
+    }
+    
+    static func all() throws -> String {
+        return try allAsJSONArray().jsonEncodedString()
+    }
+    
+    static func allItems() throws -> [ListItem] {
         let getObject = ListItem()
         try getObject.findAll()
         return getObject.rows()
@@ -49,6 +66,7 @@ class ListItem: PostgresStORM {
         let todoItem = ListItem()
         todoItem.description = description
         todoItem.priority = priority
+        todoItem.visible = true
         try todoItem.save() { id in
             todoItem.id = id as! Int
         }
@@ -84,7 +102,7 @@ class ListItem: PostgresStORM {
         return toDoItems
     }
     
-    static func selectAllItems(whereClause: String, params: [String], orderBy: [String]) throws -> [ListItem] {
+    static func selectAllItems(whereClause: String, params: [String], orderBy: [String] = ["id"]) throws -> [ListItem] {
         let getObj = ListItem()
         try getObj.select(whereclause: whereClause, params: params, orderby: orderBy)
         
@@ -95,10 +113,13 @@ class ListItem: PostgresStORM {
         return toDoItems
     }
     
-    static func updateItem(byId id: String, withDescription description: String?, andPriority priority: String?) throws -> ListItem? {
+    static func updateItem(byId id: String, withDescription description: String?, andPriority priority: String?, andVisibility visible: String?) throws -> ListItem? {
         guard let item = try ListItem.item(byId: id) else { return nil }
         item.description = description ?? item.description
         item.priority = priority ?? item.priority
+        if let visible = visible {
+            item.visible = NSString(string: visible).boolValue
+        }
         try item.save()
         return item
     }
@@ -106,8 +127,6 @@ class ListItem: PostgresStORM {
     static func deleteItem(byId id: String) throws -> [ListItem] {
         let item = try ListItem.item(byId: id)
         try item?.delete()
-        return try ListItem.all()
-        
+        return try ListItem.allItems()
     }
-
 }

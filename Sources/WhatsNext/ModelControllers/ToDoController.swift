@@ -21,13 +21,14 @@ class ToDoController {
             Route(method: .get, uri: "/priority", handler: byPriority),
             Route(method: .get, uri: "/everythingButTop", handler: everythingButTop),
             Route(method: .post, uri: "/update", handler: update),
-            Route(method: .get, uri: "delete", handler: delete)
+            Route(method: .get, uri: "/delete", handler: delete),
+            Route(method: .get, uri: "/allVisible", handler: byVisibilty)
         ]
     }
     
     func new(request: HTTPRequest, response: HTTPResponse) {
         do {
-            let json = try ToDoItemAPI.new(withRequest: request)
+            let json = try ListItemAPI.new(withRequest: request)
             response.setBody(string: json).JSONCompletedHeader()
         } catch  {
             response.completedInternalServerError(error: error)
@@ -36,7 +37,7 @@ class ToDoController {
     
     func all(request: HTTPRequest, response: HTTPResponse) {
         do {
-            let json = try ToDoItemAPI.all()
+            let json = try ListItem.all()
             response.setBody(string: json).JSONCompletedHeader()
         } catch {
             response.completedInternalServerError(error: error)
@@ -45,7 +46,7 @@ class ToDoController {
 
     func first(request: HTTPRequest, response: HTTPResponse) {
         do {
-            if let json = try ToDoItemAPI.first() {
+            if let json = try ListItemAPI.first() {
                 response.setBody(string: json).JSONCompletedHeader()
             } else {
                 response.setBody(string: "").JSONCompletedHeader()
@@ -55,13 +56,27 @@ class ToDoController {
         }
     }
     
+    func byVisibilty(request:HTTPRequest, response:HTTPResponse) {
+        do {
+            guard let visible =  request.param(name: "visible") else {
+                response.completed(status: .badRequest)
+                return
+            }
+            let itemsAsDictionaries = try ListItemAPI.itemsByVisiblity(visibility: visible)
+            try response.setBody(json: itemsAsDictionaries).JSONCompletedHeader()
+        } catch {
+            response.completedInternalServerError(error: error)
+        }
+    }
+    
+    
     func byPriority(request:HTTPRequest, response:HTTPResponse) {
         do {
             guard let priority =  request.param(name: "priority") else {
                 response.completed(status: .badRequest)
                 return
             }
-            let itemsAsDictionaries = try ToDoItemAPI.itemsByPriority(priority: priority)
+            let itemsAsDictionaries = try ListItemAPI.itemsByPriority(priority: priority)
             try response.setBody(json: itemsAsDictionaries).JSONCompletedHeader()
         } catch {
             response.completedInternalServerError(error: error)
@@ -70,7 +85,7 @@ class ToDoController {
     
     func everythingButTop(request:HTTPRequest, response:HTTPResponse) {
         do {
-            let toDoItems = try ToDoItemAPI.allItemsExceptHigh()
+            let toDoItems = try ListItemAPI.allItemsExceptHigh()
             try response.setBody(json: toDoItems).JSONCompletedHeader()
         } catch {
             response.completedInternalServerError(error: error)
@@ -79,7 +94,7 @@ class ToDoController {
     
     func update(request:HTTPRequest, response:HTTPResponse) {
         do {
-            let item = try ToDoItemAPI.updateItem(withRequest: request)
+            let item = try ListItemAPI.updateItem(withRequest: request)
             response.setBody(string: item).JSONCompletedHeader()
         } catch {
             response.completedInternalServerError(error: error)
@@ -88,7 +103,7 @@ class ToDoController {
     
     func delete(request: HTTPRequest, response: HTTPResponse) {
         do {
-            let allItems = try ToDoItemAPI.deleteItem(withRequest: request)
+            let allItems = try ListItemAPI.deleteItem(withRequest: request)
             response.setBody(string: allItems).JSONCompletedHeader()
         } catch {
             response.completedInternalServerError(error: error)
