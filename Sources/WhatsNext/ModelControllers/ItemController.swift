@@ -1,5 +1,5 @@
 //
-//  ToDoController.swift
+//  ItemController.swift
 //  WhatsNext
 //
 //  Created by Alan O'Connor on 30/01/2018.
@@ -12,7 +12,7 @@ import PerfectHTTPServer
 import StORM
 import PostgresStORM
 
-class ToDoController {
+class ItemController {
     var routes: [Route] {
         return [
             Route(method: .post, uri: "/new", handler: new),

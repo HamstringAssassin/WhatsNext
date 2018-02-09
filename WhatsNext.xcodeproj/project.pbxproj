@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		607169B6202113CD009C890C /* ListItemAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607169B5202113CD009C890C /* ListItemAPI.swift */; };
-		607169B8202113FB009C890C /* ToDoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607169B7202113FB009C890C /* ToDoController.swift */; };
+		607169B8202113FB009C890C /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607169B7202113FB009C890C /* ItemController.swift */; };
 		607169C020212303009C890C /* HTTPResponse+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607169BF20212303009C890C /* HTTPResponse+Header.swift */; };
 		607169C220212365009C890C /* JSONDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607169C120212365009C890C /* JSONDictionary.swift */; };
 		6093B45B2026718100EE4C33 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093B45A2026718100EE4C33 /* Model.swift */; };
@@ -943,7 +943,7 @@
 
 /* Begin PBXFileReference section */
 		607169B5202113CD009C890C /* ListItemAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemAPI.swift; sourceTree = "<group>"; };
-		607169B7202113FB009C890C /* ToDoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoController.swift; sourceTree = "<group>"; };
+		607169B7202113FB009C890C /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 		607169BF20212303009C890C /* HTTPResponse+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HTTPResponse+Header.swift"; path = "Sources/WhatsNext/Extensions/HTTPResponse+Header.swift"; sourceTree = SOURCE_ROOT; };
 		607169C120212365009C890C /* JSONDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONDictionary.swift; path = Sources/WhatsNext/Extensions/JSONDictionary.swift; sourceTree = SOURCE_ROOT; };
 		6093B45A2026718100EE4C33 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -1564,7 +1564,7 @@
 		607169BD20212256009C890C /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				607169B7202113FB009C890C /* ToDoController.swift */,
+				607169B7202113FB009C890C /* ItemController.swift */,
 			);
 			name = ModelControllers;
 			path = Sources/WhatsNext/ModelControllers;
@@ -3126,7 +3126,7 @@
 				607169C020212303009C890C /* HTTPResponse+Header.swift in Sources */,
 				60D669A3202E3CA3005BA426 /* MustacheHelper.swift in Sources */,
 				607169B6202113CD009C890C /* ListItemAPI.swift in Sources */,
-				607169B8202113FB009C890C /* ToDoController.swift in Sources */,
+				607169B8202113FB009C890C /* ItemController.swift in Sources */,
 				607169C220212365009C890C /* JSONDictionary.swift in Sources */,
 				60D4B8FA20135234002F5C05 /* ListItem.swift in Sources */,
 				OBJ_539 /* main.swift in Sources */,

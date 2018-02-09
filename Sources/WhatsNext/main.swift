@@ -22,7 +22,7 @@ PostgresConnector.port = 5432
     let setupObject = ListItem()
     try? setupObject.setup()
 
-let toDoController = ToDoController()
+let toDoController = ItemController()
 routes.add(toDoController.routes)
 
 func helloMustache(request: HTTPRequest, response: HTTPResponse) {
