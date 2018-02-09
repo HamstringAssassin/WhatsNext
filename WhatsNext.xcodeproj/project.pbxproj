@@ -13,6 +13,7 @@
 		607169C220212365009C890C /* JSONDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607169C120212365009C890C /* JSONDictionary.swift */; };
 		6093B45B2026718100EE4C33 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093B45A2026718100EE4C33 /* Model.swift */; };
 		60D4B8FA20135234002F5C05 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4B8F820135229002F5C05 /* ListItem.swift */; };
+		60D669A3202E3CA3005BA426 /* MustacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D669A1202E3AE3005BA426 /* MustacheHelper.swift */; };
 		OBJ_1000 /* m_ripemd.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_294 /* m_ripemd.c */; };
 		OBJ_1001 /* m_sha.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_295 /* m_sha.c */; };
 		OBJ_1002 /* m_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_296 /* m_sha1.c */; };
@@ -947,6 +948,7 @@
 		607169C120212365009C890C /* JSONDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONDictionary.swift; path = Sources/WhatsNext/Extensions/JSONDictionary.swift; sourceTree = SOURCE_ROOT; };
 		6093B45A2026718100EE4C33 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		60D4B8F820135229002F5C05 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		60D669A1202E3AE3005BA426 /* MustacheHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MustacheHelper.swift; sourceTree = "<group>"; };
 		"COpenSSL::COpenSSL::Product" /* COpenSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = COpenSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_102 /* adler32.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = adler32.c; sourceTree = "<group>"; };
 		OBJ_103 /* compress.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = compress.c; sourceTree = "<group>"; };
@@ -1576,6 +1578,15 @@
 			);
 			name = Extensions;
 			path = Sources/WhatsNext/Extensions;
+			sourceTree = SOURCE_ROOT;
+		};
+		60D669A0202E3AC9005BA426 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				60D669A1202E3AE3005BA426 /* MustacheHelper.swift */,
+			);
+			name = Helpers;
+			path = Sources/WhatsNext/Helpers;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_10 /* Tests */ = {
@@ -2249,6 +2260,7 @@
 		OBJ_8 /* WhatsNext */ = {
 			isa = PBXGroup;
 			children = (
+				60D669A0202E3AC9005BA426 /* Helpers */,
 				607169BE202122DD009C890C /* Extensions */,
 				607169BD20212256009C890C /* ModelControllers */,
 				607169BC20212226009C890C /* ModelAPI */,
@@ -3112,6 +3124,7 @@
 			buildActionMask = 0;
 			files = (
 				607169C020212303009C890C /* HTTPResponse+Header.swift in Sources */,
+				60D669A3202E3CA3005BA426 /* MustacheHelper.swift in Sources */,
 				607169B6202113CD009C890C /* ListItemAPI.swift in Sources */,
 				607169B8202113FB009C890C /* ToDoController.swift in Sources */,
 				607169C220212365009C890C /* JSONDictionary.swift in Sources */,

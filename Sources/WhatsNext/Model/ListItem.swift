@@ -82,29 +82,33 @@ class ListItem: PostgresStORM {
         return getObject.rows().first
     }
     
-    static func firstItem() throws -> ListItem? {
-        let getObj = ListItem()
-        let cursor = StORMCursor(limit: 1, offset: 0)
-        try getObj.select(whereclause: "true", params: [], orderby: ["id"], cursor: cursor)
-        return getObj.rows().first
-    }
+//    static func firstItem() throws -> ListItem? {
+//        let getObj = ListItem()
+//        let cursor = StORMCursor(limit: 1, offset: 0)
+//        try getObj.select(whereclause: "true", params: [], orderby: ["id"], cursor: cursor)
+//        return getObj.rows().first
+//    }
     
-    static func itemsByPriority(priority: String) throws -> [ListItem] {
+//    static func itemsByPriority(priority: String) throws -> [ListItem] {
+//        let getObj = ListItem()
+//        var searchData = JSONDictionary()
+//        searchData["priority"] = priority
+//
+//        try getObj.find(searchData)
+//        var toDoItems: [ListItem] = []
+//        for row in getObj.rows() {
+//            toDoItems.append(row)
+//        }
+//        return toDoItems
+//    }
+    
+    static func selectAllItems(whereClause: String?, params: [String], orderBy: [String] = ["id"]) throws -> [ListItem] {
         let getObj = ListItem()
-        var searchData = JSONDictionary()
-        searchData["priority"] = priority
-        
-        try getObj.find(searchData)
-        var toDoItems: [ListItem] = []
-        for row in getObj.rows() {
-            toDoItems.append(row)
+        if let whereClause = whereClause {
+            try getObj.select(whereclause: whereClause, params: params, orderby: orderBy)
+        } else {
+            try getObj.findAll()
         }
-        return toDoItems
-    }
-    
-    static func selectAllItems(whereClause: String, params: [String], orderBy: [String] = ["id"]) throws -> [ListItem] {
-        let getObj = ListItem()
-        try getObj.select(whereclause: whereClause, params: params, orderby: orderBy)
         
         var toDoItems: [ListItem] = []
         for row in getObj.rows() {

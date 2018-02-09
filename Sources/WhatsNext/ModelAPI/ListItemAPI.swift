@@ -17,29 +17,51 @@ class ListItemAPI {
         return try ListItem.newItem(description: description, priority: priority).asJSONDictionary().jsonEncodedString()
     }
     
-    static func first() throws -> String? {
-        return try ListItem.firstItem()?.asJSONDictionary().jsonEncodedString()
-    }
+//    static func first() throws -> String? {
+//        return try ListItem.firstItem()?.asJSONDictionary().jsonEncodedString()
+//    }
     
-    static func itemsByPriority(priority: String) throws -> JSONArray {
-        let priorityItems = try ListItem.itemsByPriority(priority: priority)
+//    static func itemsByPriority(priority: String) throws -> JSONArray {
+//        let priorityItems = try ListItem.itemsByPriority(priority: priority)
+//
+//        return priorityItems.map{ (item) in
+//            item.asJSONDictionary()
+//        }
+//    }
+    
+    static func allWithRequest(request: HTTPRequest) throws -> String {
+        var paramValues = [String]()
+        var paramKeys = [String]()
+        var whereclause = ""
         
-        return priorityItems.map{ (item) in
-            item.asJSONDictionary()
+        for (paramKey, paramValue) in request.params() {
+            paramValues.append(paramValue)
+            paramKeys.append(paramKey)
+            let index = paramValues.index(of: paramValue) ?? 0
+            if index != 0 {
+                whereclause.append(" and ")
+            }
+            whereclause.append("\(paramKey) = $\(String(describing: index + 1))")
         }
-    }
     
-    static func allItemsExceptHigh() throws -> JSONArray {
-        return try ListItem.selectAllItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
+        let items = try ListItem.selectAllItems(whereClause: whereclause, params: paramValues, orderBy: ["id"])
+        return try items.map({ (item) in
             item.asJSONDictionary()
         })
+        .jsonEncodedString()
     }
     
-    static func itemsByVisiblity(visibility: String) throws -> JSONArray {
-        return try ListItem.selectAllItems(whereClause: "visible = $1", params: [visibility]).map({ (item) in
-            item.asJSONDictionary()
-        })
-    }
+//    static func allItemsExceptHigh() throws -> JSONArray {
+//        return try ListItem.selectAllItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
+//            item.asJSONDictionary()
+//        })
+//    }
+    
+//    static func itemsByVisiblity(visibility: String) throws -> JSONArray {
+//        return try ListItem.selectAllItems(whereClause: "visible = $1", params: [visibility]).map({ (item) in
+//            item.asJSONDictionary()
+//        })
+//    }
     
     static func updateItem(withRequest request: HTTPRequest) throws -> String {
         let description = request.param(name: "description")

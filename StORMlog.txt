@@ -87,3 +87,23 @@
 [ERROR] [dcb45bfb-7451-4631-9d58-ba965d17a0ed] [2018-02-04 19:23:33 GMT] Error msg: error("ERROR:  operator does not exist: boolean == unknown\nLINE 1: ...ELECT COUNT(*) AS counter FROM toDoList  WHERE visible == $1\n                                                                  ^\nHINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.")
 [INFO] [3e26bd3a-048f-4aa2-ad1a-79aafee50f4e] [2018-02-04 19:24:40 GMT] Running setup: toDoList
 [INFO] [dea77ab2-3c50-478a-a6f1-b578884c0987] [2018-02-05 19:20:34 GMT] Running setup: toDoList
+[INFO] [e9c2f122-b674-4938-9e70-09d35ab36aee] [2018-02-05 20:45:06 GMT] Running setup: toDoList
+[INFO] [bf826e5f-0f9b-43dc-970e-cf3b62291444] [2018-02-05 20:45:20 GMT] Running setup: toDoList
+[INFO] [904f6e09-1e5a-4f9e-9886-f92f82dc2597] [2018-02-05 20:46:58 GMT] Running setup: toDoList
+[INFO] [c803c695-49ff-49aa-8f37-c26b1471352c] [2018-02-05 20:50:21 GMT] Running setup: toDoList
+[ERROR] [2d97c23d-26b9-4405-b278-bfc4b3d3f21f] [2018-02-05 20:52:24 GMT] Error msg: error("ERROR:  there is no parameter $0\nLINE 1: ...ELECT COUNT(*) AS counter FROM toDoList  WHERE priority = $0\n                                                                     ^")
+[INFO] [f14ecaea-8c55-4cb4-8cdf-48813e8358f2] [2018-02-05 20:52:57 GMT] Running setup: toDoList
+[INFO] [1be27365-78af-4e35-91b3-602b90699314] [2018-02-05 21:08:28 GMT] Running setup: toDoList
+[INFO] [cd31d069-0ebe-4b7c-b836-cc433ff577e0] [2018-02-05 21:10:31 GMT] Running setup: toDoList
+[ERROR] [c9ea0541-83e5-4830-aaa3-0412c06a82f5] [2018-02-05 21:11:53 GMT] Error msg: error("ERROR:  bind message supplies 3 parameters, but prepared statement \"\" requires 2")
+[INFO] [a0b76ac8-067b-44ef-89a9-8a0203991797] [2018-02-05 21:12:58 GMT] Running setup: toDoList
+[INFO] [12c04400-4436-48d0-a2de-9705b3a9eda2] [2018-02-05 21:13:58 GMT] Running setup: toDoList
+[ERROR] [159b657d-10d6-44bf-bfdd-1640634ba819] [2018-02-05 21:15:37 GMT] Error msg: error("ERROR:  bind message supplies 3 parameters, but prepared statement \"\" requires 2")
+[INFO] [de85809e-dbf1-46de-a234-39f7c65a16e8] [2018-02-05 21:17:31 GMT] Running setup: toDoList
+[ERROR] [bd236870-0b7b-41d6-aeba-2bdf5f81ca81] [2018-02-05 21:18:13 GMT] Error msg: error("ERROR:  bind message supplies 3 parameters, but prepared statement \"\" requires 2")
+[ERROR] [e5824c10-c795-40b2-8d7d-80453ea38a72] [2018-02-05 21:18:36 GMT] Error msg: error("ERROR:  bind message supplies 3 parameters, but prepared statement \"\" requires 2")
+[ERROR] [87e62681-5c91-4f2c-8509-521de3b26fc5] [2018-02-05 21:18:52 GMT] Error msg: error("ERROR:  syntax error at or near \"visible\"\nLINE 1: ...T(*) AS counter FROM toDoList  WHERE visible  = $1visible = ...\n                                                             ^")
+[INFO] [0be186e5-b534-4534-8246-c592d4a6f119] [2018-02-05 22:02:28 GMT] Running setup: toDoList
+[INFO] [3f69c85f-9624-49fc-9e5b-0584d5db1bb2] [2018-02-09 20:04:03 GMT] Running setup: toDoList
+[INFO] [daa14f95-c1b4-4c8d-a457-5071ac94818f] [2018-02-09 20:31:43 GMT] Running setup: toDoList
+[INFO] [5162f2ec-05e6-4aa9-a955-af803c12000d] [2018-02-09 20:33:41 GMT] Running setup: toDoList
