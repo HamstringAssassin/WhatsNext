@@ -945,8 +945,8 @@
 /* Begin PBXFileReference section */
 		607169B5202113CD009C890C /* ListItemAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemAPI.swift; sourceTree = "<group>"; };
 		607169B7202113FB009C890C /* TodoListAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAPIRouter.swift; sourceTree = "<group>"; };
-		607169BF20212303009C890C /* HTTPResponse+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HTTPResponse+Header.swift"; path = "Sources/WhatsNext/Extensions/HTTPResponse+Header.swift"; sourceTree = SOURCE_ROOT; };
-		607169C120212365009C890C /* JSONDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONDictionary.swift; path = Sources/WhatsNext/Extensions/JSONDictionary.swift; sourceTree = SOURCE_ROOT; };
+		607169BF20212303009C890C /* HTTPResponse+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HTTPResponse+Header.swift"; path = "Sources/WhatsNext/Supporting Files/Extensions/HTTPResponse+Header.swift"; sourceTree = SOURCE_ROOT; };
+		607169C120212365009C890C /* JSONDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONDictionary.swift; path = "Sources/WhatsNext/Supporting Files/Extensions/JSONDictionary.swift"; sourceTree = SOURCE_ROOT; };
 		6093B45A2026718100EE4C33 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		60D4B8F820135229002F5C05 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		60D669A1202E3AE3005BA426 /* MustacheHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MustacheHelper.swift; sourceTree = "<group>"; };
@@ -1579,12 +1579,14 @@
 				607169C120212365009C890C /* JSONDictionary.swift */,
 			);
 			name = Extensions;
-			path = Sources/WhatsNext/Extensions;
+			path = "Sources/WhatsNext/Supporting Files/Extensions";
 			sourceTree = SOURCE_ROOT;
 		};
 		60C280952030AAE30060E7C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				60D669A0202E3AC9005BA426 /* Helpers */,
+				607169BE202122DD009C890C /* Extensions */,
 			);
 			name = "Supporting Files";
 			path = "Sources/WhatsNext/Supporting Files";
@@ -1596,7 +1598,7 @@
 				60D669A1202E3AE3005BA426 /* MustacheHelper.swift */,
 			);
 			name = Helpers;
-			path = Sources/WhatsNext/Helpers;
+			path = "Sources/WhatsNext/Supporting Files/Helpers";
 			sourceTree = SOURCE_ROOT;
 		};
 		60D669A4202E3EA1005BA426 /* BrowserRouters */ = {
@@ -2281,8 +2283,6 @@
 			children = (
 				60C280952030AAE30060E7C3 /* Supporting Files */,
 				60D669A4202E3EA1005BA426 /* BrowserRouters */,
-				60D669A0202E3AC9005BA426 /* Helpers */,
-				607169BE202122DD009C890C /* Extensions */,
 				607169BD20212256009C890C /* APIRouters */,
 				607169BC20212226009C890C /* ModelAPI */,
 				607169BB2021221C009C890C /* Model */,
