@@ -25,7 +25,7 @@ final class Controller: RouteController {
         ]
     }
     
-    func delete(request: HTTPRequest, response: HTTPResponse) {
+    fileprivate func delete(request: HTTPRequest, response: HTTPResponse) {
         do {
             let _ = try ListItemAPI.deleteItem(withRequest: request)
             response.setHeader(.location, value: "/todolist").completed(status: .movedPermanently)
@@ -34,7 +34,7 @@ final class Controller: RouteController {
         }
     }
     
-    func complete(request: HTTPRequest, response: HTTPResponse) {
+    fileprivate func complete(request: HTTPRequest, response: HTTPResponse) {
         do {
             let _ = try ListItemAPI.completeItem(withRequest: request)
             response.setHeader(.location, value: "/todolist").completed(status: .movedPermanently)
@@ -43,7 +43,7 @@ final class Controller: RouteController {
         }
     }
     
-    func addItem(request: HTTPRequest, response: HTTPResponse) {
+    fileprivate func addItem(request: HTTPRequest, response: HTTPResponse) {
         do {
             let _ = try ListItemAPI.new(withRequest: request)
             response.setHeader(.location, value: "/todolist").completed(status: .movedPermanently)
@@ -52,12 +52,10 @@ final class Controller: RouteController {
         }
     }
     
-    func indexView(request: HTTPRequest, response: HTTPResponse) {
+    fileprivate func indexView(request: HTTPRequest, response: HTTPResponse) {
         do {
             var values = MustacheEvaluationContext.MapType()
-            var allItems = try ListItemAPI.allWithRequest(request: request)
-            
-            values["listItems"] = allItems
+            values["listItems"] = try ListItemAPI.allWithRequest(request: request)
             
             mustacheRequest(request: request, response: response, handler: MustacheHelper(values: values), templatePath: request.documentRoot + "/index.html")
         } catch  {

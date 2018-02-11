@@ -45,10 +45,10 @@ class ListItem: PostgresStORM {
         }
     }
 
-    var id: Int = 0
-    var description: String = ""
-    var priority: String = "medium"
-    var visible: Bool = true
+    fileprivate var id: Int = 0
+    fileprivate var description: String = ""
+    fileprivate var priority: String = "medium"
+    fileprivate (set) var visible: Bool = true
     
     var itemColor: String {
         return itemPriority(rawValue: self.priority)?.color ?? "#000000"
@@ -70,7 +70,7 @@ class ListItem: PostgresStORM {
         visible = this.data["visible"] as? Bool ??  true
     }
     
-    func rows() -> [ListItem] {
+    fileprivate func rows() -> [ListItem] {
         var rows = [ListItem]()
         for i in 0..<self.results.rows.count {
             let row = ListItem()
@@ -82,6 +82,11 @@ class ListItem: PostgresStORM {
     
     func asJSONDictionary() -> JSONDictionary {
         return ["id":self.id, "description":self.description, "priority": self.priority, "visible": self.visible, "color": self.itemColor   ]
+    }
+    
+    func updateItemVisibilty() throws {
+        self.visible = !self.visible
+        try self.save()
     }
     
     static func itemsToJSONArray(items: [ListItem]) -> JSONArray {
@@ -124,26 +129,6 @@ class ListItem: PostgresStORM {
         try getObject.find(searchData)
         return getObject.rows().first
     }
-    
-//    static func firstItem() throws -> ListItem? {
-//        let getObj = ListItem()
-//        let cursor = StORMCursor(limit: 1, offset: 0)
-//        try getObj.select(whereclause: "true", params: [], orderby: ["id"], cursor: cursor)
-//        return getObj.rows().first
-//    }
-    
-//    static func itemsByPriority(priority: String) throws -> [ListItem] {
-//        let getObj = ListItem()
-//        var searchData = JSONDictionary()
-//        searchData["priority"] = priority
-//
-//        try getObj.find(searchData)
-//        var toDoItems: [ListItem] = []
-//        for row in getObj.rows() {
-//            toDoItems.append(row)
-//        }
-//        return toDoItems
-//    }
     
     static func selectAllItems(whereClause: String?, params: [String], orderBy: [String] = ["id"]) throws -> [ListItem] {
         let getObj = ListItem()

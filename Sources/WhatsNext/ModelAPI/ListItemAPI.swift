@@ -16,19 +16,7 @@ class ListItemAPI {
         }
         return try ListItem.newItem(description: description, priority: priority).asJSONDictionary().jsonEncodedString()
     }
-    
-//    static func first() throws -> String? {
-//        return try ListItem.firstItem()?.asJSONDictionary().jsonEncodedString()
-//    }
-    
-//    static func itemsByPriority(priority: String) throws -> JSONArray {
-//        let priorityItems = try ListItem.itemsByPriority(priority: priority)
-//
-//        return priorityItems.map{ (item) in
-//            item.asJSONDictionary()
-//        }
-//    }
-    
+
     /*
      We are returning all items from the DB, and using swift methods to
      return only visible items. We also sort the items using swift to return in order of priority.
@@ -60,19 +48,7 @@ class ListItemAPI {
             item.asJSONDictionary()
         })
     }
-    
-//    static func allItemsExceptHigh() throws -> JSONArray {
-//        return try ListItem.selectAllItems(whereClause: "priority != $1", params: ["high"], orderBy: ["id"]).map({ (item) in
-//            item.asJSONDictionary()
-//        })
-//    }
-    
-//    static func itemsByVisiblity(visibility: String) throws -> JSONArray {
-//        return try ListItem.selectAllItems(whereClause: "visible = $1", params: [visibility]).map({ (item) in
-//            item.asJSONDictionary()
-//        })
-//    }
-    
+
     static func updateItem(withRequest request: HTTPRequest) throws -> String {
         let description = request.param(name: "description")
         let priority = request.param(name: "priority")
@@ -93,8 +69,7 @@ class ListItemAPI {
             return "missing ID - nothing to delete"
         }
         let item = try ListItem.item(byId: id)
-        item?.visible = false
-        try item?.save()
+        try item?.updateItemVisibilty()
         return try item?.asJSONDictionary().jsonEncodedString()
     }
     
