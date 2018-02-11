@@ -11,15 +11,58 @@ import PostgresStORM
 
 class ListItem: PostgresStORM {
     
+    enum priorityColor: String {
+        case red = "#FF0000"
+        case orange = "#FFA500"
+        case green = "#008000"
+    }
+    
+    enum itemPriority: String {
+        case high
+        case medium
+        case low
+        
+        var color: String {
+            switch self {
+            case .high:
+                return priorityColor.red.rawValue
+            case .medium:
+                return priorityColor.orange.rawValue
+            case .low:
+                return priorityColor.green.rawValue
+            }
+        }
+        
+        var priorityValue: Int {
+            switch self {
+            case .high:
+                return 0
+            case .medium:
+                return 1
+            case .low:
+                return 2
+            }
+        }
+    }
+
     var id: Int = 0
     var description: String = ""
     var priority: String = "medium"
     var visible: Bool = true
     
+    var itemColor: String {
+        return itemPriority(rawValue: self.priority)?.color ?? "#000000"
+    }
+    
+    var priorityValue: Int {
+        return itemPriority(rawValue: self.priority)?.priorityValue ?? 0
+    }
+    
     override func table() -> String {
         return "toDoList"
     }
     
+    // to convert a row of data into an object
     override func to(_ this: StORMRow) {
         id = this.data["id"] as? Int ?? 0
         description = this.data["description"] as? String ?? ""
@@ -38,7 +81,7 @@ class ListItem: PostgresStORM {
     }
     
     func asJSONDictionary() -> JSONDictionary {
-        return ["id":self.id, "description":self.description, "priority": self.priority, "visible": self.visible]
+        return ["id":self.id, "description":self.description, "priority": self.priority, "visible": self.visible, "color": self.itemColor   ]
     }
     
     static func itemsToJSONArray(items: [ListItem]) -> JSONArray {
@@ -133,4 +176,6 @@ class ListItem: PostgresStORM {
         try item?.delete()
         return try ListItem.allItems()
     }
+    
+    
 }

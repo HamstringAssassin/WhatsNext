@@ -37,7 +37,7 @@ class ItemController {
     
     func allWithParams(request: HTTPRequest, response: HTTPResponse) {
         do {
-            let json = try ListItemAPI.allWithRequest(request: request)
+            let json = try ListItemAPI.allWithRequest(request: request).jsonEncodedString()
             response.setBody(string: json).JSONCompletedHeader()
         } catch {
             response.completedInternalServerError(error: error)

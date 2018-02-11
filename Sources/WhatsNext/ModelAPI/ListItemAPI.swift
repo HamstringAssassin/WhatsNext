@@ -29,7 +29,11 @@ class ListItemAPI {
 //        }
 //    }
     
-    static func allWithRequest(request: HTTPRequest) throws -> String {
+    /*
+     We are returning all items from the DB, and using swift methods to
+     return only visible items. We also sort the items using swift to return in order of priority.
+     */
+    static func allWithRequest(request: HTTPRequest) throws ->  JSONArray {
         var paramValues = [String]()
         var paramKeys = [String]()
         var whereclause = ""
@@ -45,10 +49,16 @@ class ListItemAPI {
         }
     
         let items = try ListItem.selectAllItems(whereClause: whereclause, params: paramValues, orderBy: ["id"])
-        return try items.map({ (item) in
+        return items
+            .filter({ (item) -> Bool in
+                item.visible
+            })
+            .sorted(by: { (first, second) -> Bool in
+                first.priorityValue < second.priorityValue
+            })
+            .map({ (item) in
             item.asJSONDictionary()
         })
-        .jsonEncodedString()
     }
     
 //    static func allItemsExceptHigh() throws -> JSONArray {
@@ -78,8 +88,18 @@ class ListItemAPI {
         return try toDoItem.asJSONDictionary().jsonEncodedString()
     }
     
+    static func completeItem(withRequest request: HTTPRequest) throws -> String? {
+        guard let id = request.urlVariables["id"] else {
+            return "missing ID - nothing to delete"
+        }
+        let item = try ListItem.item(byId: id)
+        item?.visible = false
+        try item?.save()
+        return try item?.asJSONDictionary().jsonEncodedString()
+    }
+    
     static func deleteItem(withRequest request: HTTPRequest) throws -> String {
-        guard let id = request.param(name: "id") else {
+        guard let id = request.urlVariables["id"] else {
             return "missing ID - nothing to delete"
         }
         let allItems = try ListItem.deleteItem(byId: id)

@@ -1,0 +1,36 @@
+.page-header {
+	text-align: center;
+}
+
+.new-item {
+	margin-bottom: 20px;
+    margin-top: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+
+	.new-item-header {
+
+	}
+}
+
+.item-list {
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.item-priority {
+	height: 50px;
+	width: 50px;
+}
+
+.complete-btn {
+	text-align: right;
+	padding: 10px;
+}
+
+.description-text {
+	padding: 10px;
+}
+
+
+
