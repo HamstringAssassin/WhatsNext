@@ -12,7 +12,7 @@ import PerfectHTTPServer
 import StORM
 import PostgresStORM
 
-class ItemController {
+class TodoListAPIRouter {
     var routes: [Route] {
         return [
             Route(method: .post, uri: "/new", handler: new),

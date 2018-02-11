@@ -22,7 +22,7 @@ PostgresConnector.port = 5432
     let setupObject = ListItem()
     try? setupObject.setup()
 
-let itemController = ItemController()
+let itemController = TodoListAPIRouter()
 let todoListRouter = TodoListRouter()
 routes.add(itemController.routes)
 routes.add(todoListRouter.routes)
