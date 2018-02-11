@@ -1563,13 +1563,13 @@
 			path = Sources/WhatsNext/ModelAPI;
 			sourceTree = SOURCE_ROOT;
 		};
-		607169BD20212256009C890C /* ModelControllers */ = {
+		607169BD20212256009C890C /* APIRouters */ = {
 			isa = PBXGroup;
 			children = (
 				607169B7202113FB009C890C /* ItemController.swift */,
 			);
-			name = ModelControllers;
-			path = Sources/WhatsNext/ModelControllers;
+			name = APIRouters;
+			path = Sources/WhatsNext/APIRouters;
 			sourceTree = SOURCE_ROOT;
 		};
 		607169BE202122DD009C890C /* Extensions */ = {
@@ -1591,13 +1591,13 @@
 			path = Sources/WhatsNext/Helpers;
 			sourceTree = SOURCE_ROOT;
 		};
-		60D669A4202E3EA1005BA426 /* Controller */ = {
+		60D669A4202E3EA1005BA426 /* BrowserRouters */ = {
 			isa = PBXGroup;
 			children = (
 				60D669A5202E3ED5005BA426 /* Controller.swift */,
 			);
-			name = Controller;
-			path = Sources/WhatsNext/Controller;
+			name = BrowserRouters;
+			path = Sources/WhatsNext/BrowserRouters;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_10 /* Tests */ = {
@@ -2271,10 +2271,10 @@
 		OBJ_8 /* WhatsNext */ = {
 			isa = PBXGroup;
 			children = (
-				60D669A4202E3EA1005BA426 /* Controller */,
+				60D669A4202E3EA1005BA426 /* BrowserRouters */,
 				60D669A0202E3AC9005BA426 /* Helpers */,
 				607169BE202122DD009C890C /* Extensions */,
-				607169BD20212256009C890C /* ModelControllers */,
+				607169BD20212256009C890C /* APIRouters */,
 				607169BC20212226009C890C /* ModelAPI */,
 				607169BB2021221C009C890C /* Model */,
 				OBJ_9 /* main.swift */,

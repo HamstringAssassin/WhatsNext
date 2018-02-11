@@ -11,10 +11,6 @@ import PerfectHTTP
 import PerfectHTTPServer
 import PerfectMustache
 
-protocol RouteController {
-    var routes: [Route] { get }
-}
-
 final class Controller: RouteController {
     var routes: [Route] {
         return [
