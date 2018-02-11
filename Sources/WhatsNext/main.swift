@@ -23,9 +23,9 @@ PostgresConnector.port = 5432
     try? setupObject.setup()
 
 let itemController = ItemController()
-let controller = Controller()
+let todoListRouter = TodoListRouter()
 routes.add(itemController.routes)
-routes.add(controller.routes)
+routes.add(todoListRouter.routes)
 
 func helloMustache(request: HTTPRequest, response: HTTPResponse) {
     var values = MustacheEvaluationContext.MapType()

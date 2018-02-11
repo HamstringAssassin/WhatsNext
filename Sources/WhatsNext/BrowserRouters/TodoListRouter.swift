@@ -11,7 +11,7 @@ import PerfectHTTP
 import PerfectHTTPServer
 import PerfectMustache
 
-final class Controller: RouteController {
+final class TodoListRouter {
     var routes: [Route] {
         return [
             Route(method: .get, uri: "/todolist", handler: indexView),

@@ -14,7 +14,7 @@
 		6093B45B2026718100EE4C33 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093B45A2026718100EE4C33 /* Model.swift */; };
 		60D4B8FA20135234002F5C05 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4B8F820135229002F5C05 /* ListItem.swift */; };
 		60D669A3202E3CA3005BA426 /* MustacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D669A1202E3AE3005BA426 /* MustacheHelper.swift */; };
-		60D669A6202E3ED5005BA426 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D669A5202E3ED5005BA426 /* Controller.swift */; };
+		60D669A6202E3ED5005BA426 /* TodoListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D669A5202E3ED5005BA426 /* TodoListRouter.swift */; };
 		OBJ_1000 /* m_ripemd.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_294 /* m_ripemd.c */; };
 		OBJ_1001 /* m_sha.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_295 /* m_sha.c */; };
 		OBJ_1002 /* m_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_296 /* m_sha1.c */; };
@@ -950,7 +950,7 @@
 		6093B45A2026718100EE4C33 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		60D4B8F820135229002F5C05 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		60D669A1202E3AE3005BA426 /* MustacheHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MustacheHelper.swift; sourceTree = "<group>"; };
-		60D669A5202E3ED5005BA426 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		60D669A5202E3ED5005BA426 /* TodoListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListRouter.swift; sourceTree = "<group>"; };
 		"COpenSSL::COpenSSL::Product" /* COpenSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = COpenSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_102 /* adler32.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = adler32.c; sourceTree = "<group>"; };
 		OBJ_103 /* compress.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = compress.c; sourceTree = "<group>"; };
@@ -1594,7 +1594,7 @@
 		60D669A4202E3EA1005BA426 /* BrowserRouters */ = {
 			isa = PBXGroup;
 			children = (
-				60D669A5202E3ED5005BA426 /* Controller.swift */,
+				60D669A5202E3ED5005BA426 /* TodoListRouter.swift */,
 			);
 			name = BrowserRouters;
 			path = Sources/WhatsNext/BrowserRouters;
@@ -3135,7 +3135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				60D669A6202E3ED5005BA426 /* Controller.swift in Sources */,
+				60D669A6202E3ED5005BA426 /* TodoListRouter.swift in Sources */,
 				607169C020212303009C890C /* HTTPResponse+Header.swift in Sources */,
 				60D669A3202E3CA3005BA426 /* MustacheHelper.swift in Sources */,
 				607169B6202113CD009C890C /* ListItemAPI.swift in Sources */,
