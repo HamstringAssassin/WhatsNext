@@ -14,43 +14,18 @@ server.documentRoot = "webroot"
 var routes = Routes()
 
 PostgresConnector.host = "localhost"
-PostgresConnector.username = "perfect"
-PostgresConnector.password = "perfect"
-PostgresConnector.database = "perfect_testing"
+PostgresConnector.username = "todolist"
+PostgresConnector.password = "todolistpassword"
+PostgresConnector.database = "todolist_database"
 PostgresConnector.port = 5432
 
-    let setupObject = ListItem()
-    try? setupObject.setup()
+let setupObject = ListItem()
+try? setupObject.setup()
 
 let itemController = TodoListAPIRouter()
 let todoListRouter = TodoListRouter()
 routes.add(itemController.routes)
 routes.add(todoListRouter.routes)
-
-func helloMustache(request: HTTPRequest, response: HTTPResponse) {
-    var values = MustacheEvaluationContext.MapType()
-    values["name"] = "HammyAssassin"
-    mustacheRequest(request: request, response: response, handler: MustacheHelper(values: values), templatePath: request.documentRoot + "/" + "hello.html")
-}
-
-routes.add(method: .get, uri: "/helloMustache", handler: helloMustache)
-
-func readTXTFile() -> String {
-    var readText = ""
-    do {
-        try readText = String(contentsOfFile: "webroot/hello.txt")
-    } catch let error as NSError {
-        readText = "Something went wrong. See log for details."
-        print("Something went wrong with reading the file. \(error.localizedDescription)")
-    }
-    return readText
-}
-
-routes.add(method: .get, uri: "/") { (request, response) in
-    let string = readTXTFile()
-    response.setBody(string: string)
-    .completed()
-}
 
 server.addRoutes(routes)
 
