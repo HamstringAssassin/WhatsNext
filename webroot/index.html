@@ -20,21 +20,21 @@
 
 		<div class="row new-item">
 			<div class="row new-item-header">
-				<div class="col-md-12">
+				<div class="col-md-12 col-sm-12 col-xs-12">
 					<h4>Add new Item</h4>
 				</div>
 			</div>
 			<form action="/todolist" method="post">
 				<div class="row parameter-headers">
-					<div class="col-md-3">
+					<div class="col-md-3 col-sm-3 col-xs-3">
 						<label>Priority</label>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-9 col-md-9 col-xs-9">
 						<label>Description</label>
 					</div>
 				</div>
 				<div class="row parameter-values">
-					<div class="col-md-3">
+					<div class="col-md-3 col-sm-3 col-xs-3">
 						<select class="btn btn-primary dropdown-toggle form-control" name="priority">
 							<option value="high">High</option>
 							<option value="medium">Medium</option>
@@ -42,10 +42,10 @@
 						</select>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-md-6 col-sm-6 col-xs-6">
 						<input class="form-control" type="text" name="description", placeholder="enter a description of the todo item" />
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 col-sm-3 col-xs-3">
 						<input class="btn btn-primary" type="submit" value="Save" />
 					</div>
 				</div>
@@ -57,13 +57,13 @@
 			<ul class="list-group">
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-md-1 priority-image">
+						<div class="col-md-1 col-sm-1 col-xs-1 priority-image">
 							<svg class="item-priority" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 640" width="640" height="640"><defs><path d="M331.71 167.43C346.91 167.43 359.24 179.76 359.24 194.96C359.24 260.43 359.24 429.29 359.24 494.76C359.24 509.96 346.91 522.29 331.71 522.29C319.1 522.29 308.82 522.29 296.21 522.29C281 522.29 268.68 509.96 268.68 494.76C268.68 429.29 268.68 260.43 268.68 194.96C268.68 179.76 281 167.43 296.21 167.43C308.82 167.43 319.1 167.43 331.71 167.43Z" id="h2IZMn96v"></path><path d="M383.27 156.34L452.58 263.54L313.96 263.54L175.34 263.54L244.64 156.34L313.96 49.14L383.27 156.34Z" id="a6luRb5Aw7"></path></defs><g><g><g><use xlink:href="#h2IZMn96v" opacity="1" fill="{{color}}" fill-opacity="1"></use></g><g><use xlink:href="#a6luRb5Aw7" opacity="1" fill="{{color}}" fill-opacity="1"></use></g></g></g></svg>
 						</div>
-						<div class="col-md-9 description-text">
+						<div class="col-md-9 col-sm-9 col-xs-9 description-text">
 							<h5><span>{{description}}</span></h5>
 						</div>
-						<div class="col-md-2 complete-btn">
+						<div class="col-md-2 col-sm-2 col-xs-2 complete-btn">
 							<form action="/todolist/{{id}}/complete" method="post">
 								<input class="btn btn-primary" type="submit" value="Done">
 							</form>
