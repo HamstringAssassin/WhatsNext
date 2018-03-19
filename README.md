@@ -1,3 +1,3 @@
 # WhatsNext
 
-A description of this package.
+A basic ToDo list web app using Server Side Swift, Perfect and a PostgrSQL DB. 
